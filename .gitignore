@@ -1,0 +1,12 @@
+#Gradle
+.gradle/
+gradle
+build/
+
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+*.ipr
+*.DS_Store
