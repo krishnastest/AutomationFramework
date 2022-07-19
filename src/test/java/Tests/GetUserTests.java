@@ -1,33 +1,39 @@
 package Tests;
 
-
-import Response.GetUserResponse;
-import com.fasterxml.jackson.databind.ObjectMapper;
-
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
+import io.restassured.RestAssured;
+import io.restassured.response.ValidatableResponse;
+import org.hamcrest.Matchers;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+import static io.restassured.RestAssured.given;
 
 public class GetUserTests {
 
-    public static void main(String[] args) throws IOException, InterruptedException {
-        getUser();
+    @BeforeTest
+    public void setup(){
+        RestAssured.baseURI = "https://reqres.in";
     }
 
-    public static void getUser() throws IOException {
-        // Create a neat value object to hold the URL
-        URL url = new URL("https://reqres.in/api/users/2");
+    @Test
+    public void shouldGetUsers() {
+        //1. Act
+        //2. Arrange
+        //3. Assert
 
-        HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+        assertApiResponse(given()
+                .when()
+                .get("/api/users/2")
+                .then()
+                .statusCode(200));
 
-        InputStream responseStream = connection.getInputStream();
-
-        ObjectMapper mapper = new ObjectMapper();
-        GetUserResponse response = mapper.readValue(responseStream, GetUserResponse.class);
-
-        System.out.println(response);
 
     }
+
+    private ValidatableResponse assertApiResponse(ValidatableResponse body) {
+        return body
+                .body("data.id", Matchers.equalTo(2));
+
+    }
+
 
 }
