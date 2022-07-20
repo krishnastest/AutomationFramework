@@ -9,48 +9,55 @@ import java.util.Map;
  import java.util.List;
  import java.util.Map;
 
- public class GetUserListResponse {
-    private Integer page;
-    private Integer perPage;
-    private Integer total;
-    private Integer totalPages;
-    private List<Data> data = new ArrayList<Data>();
+public class GetUserListResponse
+{
+    private int page;
+
+    private int per_page;
+
+    private int total;
+
+    private int total_pages;
+
+    private List<Data> data;
+
     private Support support;
-    public Integer getPage() {
-        return page;
-    }
-    public void setPage(Integer page) {
+
+    public void setPage(int page){
         this.page = page;
     }
-    public Integer getPerPage() {
-        return perPage;
+    public int getPage(){
+        return this.page;
     }
-    public void setPerPage(Integer perPage) {
-        this.perPage = perPage;
+    public void setPer_page(int per_page){
+        this.per_page = per_page;
     }
-    public Integer getTotal() {
-        return total;
+    public int getPer_page(){
+        return this.per_page;
     }
-    public void setTotal(Integer total) {
+    public void setTotal(int total){
         this.total = total;
     }
-    public Integer getTotalPages() {
-        return totalPages;
+    public int getTotal(){
+        return this.total;
     }
-    public void setTotalPages(Integer totalPages) {
-        this.totalPages = totalPages;
+    public void setTotal_pages(int total_pages){
+        this.total_pages = total_pages;
     }
-    public List<Data> getData() {
-        return data;
+    public int getTotal_pages(){
+        return this.total_pages;
     }
-    public void setData(List<Data> data) {
+    public void setData(List<Data> data){
         this.data = data;
     }
-    public Support getSupport() {
-        return support;
+    public List<Data> getData(){
+        return this.data;
     }
-    public void setSupport(Support support) {
+    public void setSupport(Support support){
         this.support = support;
+    }
+    public Support getSupport(){
+        return this.support;
     }
 }
 

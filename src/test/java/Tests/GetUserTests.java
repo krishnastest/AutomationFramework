@@ -1,10 +1,11 @@
 package Tests;
 
+import Response.GetUserResponse;
 import io.restassured.RestAssured;
-import io.restassured.response.ValidatableResponse;
-import org.hamcrest.Matchers;
+import io.restassured.specification.RequestSpecification;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
+
 import static io.restassured.RestAssured.given;
 
 public class GetUserTests {
@@ -15,25 +16,17 @@ public class GetUserTests {
     }
 
     @Test
-    public void shouldGetUsers() {
-        //1. Act
-        //2. Arrange
-        //3. Assert
+    public void getSingleUser() {
+        RequestSpecification request = RestAssured.given();
 
-        assertApiResponse(given()
-                .when()
-                .get("/api/users/2")
-                .then()
-                .statusCode(200));
+        var response = request.get("/api/users/2");
 
-
+        // Deserializing the Response body into Books class
+        GetUserResponse getUser = response.getBody().as(GetUserResponse.class);
+        System.out.println(getUser.toString());
     }
 
-    private ValidatableResponse assertApiResponse(ValidatableResponse body) {
-        return body
-                .body("data.id", Matchers.equalTo(2));
 
-    }
 
 
 }

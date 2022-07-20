@@ -6,18 +6,29 @@ import java.util.Map;
 
 public class GetUserResponse {
     private Data data;
+
     private Support support;
-    public Data getData() {
-        return data;
-    }
-    public void setData(Data data) {
+
+    public void setData(Data data){
         this.data = data;
     }
-    public Support getSupport() {
-        return support;
+    public Data getData(){
+        return this.data;
     }
-    public void setSupport(Support support) {
+    public void setSupport(Support support){
         this.support = support;
     }
+    public Support getSupport(){
+        return this.support;
+    }
+
+    @Override
+    public String toString() {
+        return "GetUserResponse{ \n" +
+                "data=" + data + "\n" +
+                ", support=" + support +
+                '}';
+    }
 }
+
 
