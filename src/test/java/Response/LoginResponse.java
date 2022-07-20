@@ -11,4 +11,11 @@ public class LoginResponse {
     public String getToken(){
         return this.token;
     }
+
+    @Override
+    public String toString() {
+        return "LoginResponse{" +
+                "token='" + token + '\'' +
+                '}';
+    }
 }

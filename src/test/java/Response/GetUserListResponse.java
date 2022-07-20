@@ -59,6 +59,18 @@ public class GetUserListResponse
     public Support getSupport(){
         return this.support;
     }
+
+    @Override
+    public String toString() {
+        return "GetUserListResponse{ \n" +
+                "page=" + page + "\n" +
+                ", per_page=" + per_page + "\n" +
+                ", total=" + total + "\n" +
+                ", total_pages=" + total_pages + "\n" +
+                ", data=" + data + "\n" +
+                ", support=" + support +
+                '}';
+    }
 }
 
 

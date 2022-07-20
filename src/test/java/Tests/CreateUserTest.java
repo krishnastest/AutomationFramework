@@ -1,17 +1,16 @@
 package Tests;
 
-import Requests.CreateUserRequest;
+import Requests.CreateUpdateUserRequest;
 import Response.CreateUserResponse;
 import Utilities.APIEndpoints;
 import io.restassured.RestAssured;
-import io.restassured.specification.RequestSpecification;
 import org.testng.annotations.Test;
 
 public class CreateUserTest {
 
     @Test
     public void createUser(){
-        CreateUserRequest newUser = new CreateUserRequest("Nikhil", "SDET 1");
+        CreateUpdateUserRequest newUser = new CreateUpdateUserRequest("Nikhil", "SDET 1");
 
         APIEndpoints apiEndpoints = new APIEndpoints();
         RestAssured.baseURI = apiEndpoints.getBaseURL();

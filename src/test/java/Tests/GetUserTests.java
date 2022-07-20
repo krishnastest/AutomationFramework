@@ -1,6 +1,7 @@
 package Tests;
 
 import Response.GetUserResponse;
+import Utilities.APIEndpoints;
 import io.restassured.RestAssured;
 import io.restassured.specification.RequestSpecification;
 import org.testng.annotations.BeforeTest;
@@ -17,9 +18,11 @@ public class GetUserTests {
 
     @Test
     public void getSingleUser() {
+        APIEndpoints apiEndpoints = new APIEndpoints();
+
         RequestSpecification request = RestAssured.given();
 
-        var response = request.get("/api/users/2");
+        var response = request.get(apiEndpoints.getUsers());
 
         // Deserializing the Response body into Books class
         GetUserResponse getUser = response.getBody().as(GetUserResponse.class);
