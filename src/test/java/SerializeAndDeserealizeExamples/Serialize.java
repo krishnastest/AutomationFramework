@@ -1,10 +1,9 @@
-package SerializeAndDeserealize;
+package SerializeAndDeserealizeExamples;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
-import SerializeAndDeserealize.Rectangle;
 
 public class Serialize {
 
@@ -13,7 +12,7 @@ public class Serialize {
 
             // Step 1: Open a file output stream to create a file object on disk.
             // This file object will be used to write the serialized bytes of an object
-            FileOutputStream fileStream = new FileOutputStream("Rectangle");
+            FileOutputStream fileStream = new FileOutputStream("Rectangle.json");
 
             // Step 2: Create a ObjectOutputStream, this class takes a files stream.
             // This class is responsible for converting the Object of any type into

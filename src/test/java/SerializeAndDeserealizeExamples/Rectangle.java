@@ -1,4 +1,4 @@
-package SerializeAndDeserealize;
+package SerializeAndDeserealizeExamples;
 
 import java.io.Serializable;
 

@@ -9,3 +9,4 @@ AutomationFramework
 
 Later, we will introduce API Layers to segregate tests with API connection and other unrelated stuff for tests.
 Also Github CI/CD functions will be used to run the builds.
+Lastly, we will have Allure or similar reporting functionality to check the status of the runs.

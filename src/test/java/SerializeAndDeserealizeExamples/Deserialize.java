@@ -1,8 +1,8 @@
-package SerializeAndDeserealize;
+package SerializeAndDeserealizeExamples;
 
 import java.io.*;
 
-import static SerializeAndDeserealize.Serialize.SerializeToFile;
+import static SerializeAndDeserealizeExamples.Serialize.SerializeToFile;
 
 public class Deserialize {
     public static Object DeSerializeFromFileToObject(String fileName)
@@ -11,7 +11,7 @@ public class Deserialize {
 
             // Step 1: Create a file input stream to read the serialized content
             // of rectangle class from the file
-            FileInputStream fileStream = new FileInputStream("Rectangle");
+            FileInputStream fileStream = new FileInputStream("Rectangle.json");
 
             // Step 2: Create an object stream from the file stream. So that the content
             // of the file is converted to the Rectangle Object instance
