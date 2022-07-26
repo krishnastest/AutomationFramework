@@ -1,6 +1,6 @@
 package Tests;
 
-import Requests.CreateUpdateUserRequest;
+import Requests.CreateUserRequest;
 import Utilities.APIEndpoints;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
@@ -11,7 +11,7 @@ public class UpdateUserTest {
 
     @Test
     public void updateUser(){
-        CreateUpdateUserRequest updateUser = new CreateUpdateUserRequest("Nikhil", "Zion Resident");
+        CreateUserRequest updateUser = new CreateUserRequest("Nikhil", "Zion Resident");
 
         APIEndpoints apiEndpoints = new APIEndpoints();
         RestAssured.baseURI = apiEndpoints.getBaseURL();
