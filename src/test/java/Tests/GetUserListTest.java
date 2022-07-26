@@ -17,5 +17,6 @@ public class GetUserListTest {
                 .getBody().as(GetUserListResponse.class);
 
         System.out.println(response.toString());
+        System.out.println();
     }
 }
