@@ -1,5 +1,10 @@
 package Utilities;
 
+import Requests.CreateUserRequest;
+import Requests.LoginUserRequest;
+import io.restassured.RestAssured;
+import Response.LoginResponse;
+
 public class APIEndpoints {
 
     //This file will contain the APIs for usage.
@@ -12,7 +17,7 @@ public class APIEndpoints {
     String updateUsers = "/api/users/2";
     String deleteUsers = "/api/users/2";
     String registerUser = "/api/register";
-    String loginUser = "/api/login";
+    private static String loginUser = "/api/login";
 
     public String getBaseURL() {
         return BaseURL;
@@ -48,5 +53,18 @@ public class APIEndpoints {
 
     public String getLoginUser() {
         return loginUser;
+    }
+
+    private static final String BASE_URL = "https://reqres.in/";
+
+    public static LoginResponse Login(LoginUserRequest newUser) {
+        RestAssured.baseURI = BASE_URL;
+
+        var response = RestAssured.given()
+                .header("Content-Type","application/json")
+                .body(newUser)
+                .post(loginUser)
+                .getBody().as(LoginResponse.class);
+        return response;
     }
 }

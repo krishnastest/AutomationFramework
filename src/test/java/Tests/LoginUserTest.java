@@ -5,6 +5,7 @@ import Response.LoginResponse;
 import Utilities.APIEndpoints;
 import io.restassured.RestAssured;
 import io.restassured.specification.RequestSpecification;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class LoginUserTest {
@@ -15,14 +16,10 @@ public class LoginUserTest {
         LoginUserRequest newUser = new LoginUserRequest("eve.holt@reqres.in", "cityslicka");
 
         APIEndpoints apiEndpoints = new APIEndpoints();
-        RestAssured.baseURI = apiEndpoints.getBaseURL();
+        LoginResponse loginResponse = apiEndpoints.Login(newUser);
 
-        var response = RestAssured.given()
-                .header("Content-Type","application/json")
-                .body(newUser)
-                .post(apiEndpoints.getLoginUser())
-                .getBody().as(LoginResponse.class);
+        Assert.assertEquals(loginResponse.getToken(), "QpwL5tke4Pnpja7X4");
+        System.out.println(loginResponse.getToken());
 
-        System.out.println(response.toString());
     }
 }
