@@ -34,4 +34,4 @@ jobs:
         gradle-version: "7.3.3"
         arguments: build
     - name : Run test
-      run: gradlew clean test
+      run: ./gradlew clean test
