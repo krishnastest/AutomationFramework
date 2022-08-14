@@ -14,19 +14,15 @@ public class CreateUserTest {
         CreateUserRequest newUser = new CreateUserRequest("Nikhil", "SDET 1");
 
         APIEndpoints apiEndpoints = new APIEndpoints();
-        RestAssured.baseURI = apiEndpoints.getBaseURL();
 
-        CreateUserResponse response = RestAssured.given()
-                .header("Content-Type", "application/json")
-                .body(newUser)
-                .when()
-                .post(apiEndpoints.getCreateUsers())
-                .getBody().as(CreateUserResponse.class);
+        CreateUserResponse response = apiEndpoints.Create(newUser);
         Assert.assertEquals(response.getName(), "Nikhil");
         Assert.assertEquals(response.getJob(), "SDET 1");
 
         System.out.println(response.toString());
     }
+
+
 
 
 }

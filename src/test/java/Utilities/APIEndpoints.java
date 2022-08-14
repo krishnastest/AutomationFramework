@@ -2,6 +2,7 @@ package Utilities;
 
 import Requests.CreateUserRequest;
 import Requests.LoginUserRequest;
+import Response.CreateUserResponse;
 import io.restassured.RestAssured;
 import Response.LoginResponse;
 
@@ -13,7 +14,7 @@ public class APIEndpoints {
     String listUsers = "/api/users?page=2";
     String users = "/api/users/2";
     String singleResource = "/api/unknown/2";
-    String createUsers = "/api/users";
+    private static String createUsers = "/api/users";
     String updateUsers = "/api/users/2";
     String deleteUsers = "/api/users/2";
     String registerUser = "/api/register";
@@ -57,7 +58,7 @@ public class APIEndpoints {
 
     private static final String BASE_URL = "https://reqres.in/";
 
-    public static LoginResponse Login(LoginUserRequest newUser) {
+    public static LoginResponse Login(LoginUserRequest  newUser) {
         RestAssured.baseURI = BASE_URL;
 
         var response = RestAssured.given()
@@ -65,6 +66,17 @@ public class APIEndpoints {
                 .body(newUser)
                 .post(loginUser)
                 .getBody().as(LoginResponse.class);
+        return response;
+    }
+
+    public static CreateUserResponse Create(CreateUserRequest newUser) {
+        RestAssured.baseURI = BASE_URL;
+        CreateUserResponse response = RestAssured.given()
+                .header("Content-Type", "application/json")
+                .body(newUser)
+                .when()
+                .post(createUsers)
+                .getBody().as(CreateUserResponse.class);
         return response;
     }
 }
